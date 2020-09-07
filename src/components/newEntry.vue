@@ -1,8 +1,6 @@
 <template>
 <div>
-<!-- 
-Create timeline component here
--->
+
 </div>
 </template>
 
