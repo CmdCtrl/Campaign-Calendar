@@ -17,13 +17,9 @@
       </transition>
       <transition name="slide" appear>
         <div class="modal" v-if="entryModal">
-          <h1>This will be Form title</h1>
-          <p>This will be replaced with a form and input boxes. 
-            The data entered will be bound to internal variables and then displayed to the event list.
-            be sure to revisit the tutorial blog app!
-          </p>
-          <button class="new-entry" @Click="entryModal = false">THIS WILL BE SUBMIT BUTTON</button>
-
+          <h2>New Timeline Entry</h2>
+          <newEntry />
+          <button class="new-entry" @Click="entryModal = false">Submit</button>
         </div>
       </transition>
     </div>
@@ -32,18 +28,18 @@
 
 <script>
 // @ is an alias to /src
-
+import newEntry from '@/components/newEntry.vue';
 export default {
   name: 'Home',
   
   data() {
     return {
-      entryModal: true
+      entryModal: false
     };
   },
 
   components: {
-    
+    newEntry
   }
 }
 </script>
@@ -57,7 +53,7 @@ export default {
 }
 
 body {
-  font-family: 'montserrat', sans-serif;
+  font-family: sans-serif;
 }
 
 .button-container {
