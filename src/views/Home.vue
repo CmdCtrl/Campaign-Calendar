@@ -1,13 +1,7 @@
 <template>
   <div class="home">
     <header>
-      <img src="../assets/banner.png" alt="">
-      <div class="campaign-logo">
-        <h1>Campaign</h1>
-      </div>
-      <div class="calendar-logo">
-        <h1>Calendar</h1>
-      </div>
+      <Banner />
     </header>
     <div class="button-container">
       <button class="new-entry" @click="entryModal = true"><span> + </span>New Entry</button>
@@ -29,6 +23,8 @@
 <script>
 // @ is an alias to /src
 import newEntry from '@/components/newEntry.vue';
+import Banner from '@/components/Banner.vue';
+
 export default {
   name: 'Home',
   
@@ -39,7 +35,8 @@ export default {
   },
 
   components: {
-    newEntry
+    newEntry,
+    Banner,
   }
 }
 </script>
@@ -50,9 +47,6 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-body {
   font-family: sans-serif;
 }
 
@@ -140,31 +134,6 @@ body {
 }
 .slide-enter, .slide-leave-to {
   transform: translateY(-50%) translateX(100vw);
-}
-
-.campaign-logo {
-  position: absolute;
-  top: 6px;
-  left: 16px;
-  display: flex;
-  font-size: 8vh;
-  color: #FFF;
-}
-
-.calendar-logo {
-  position: absolute;
-  top: 86px;
-  left: 16px;
-  display: flex;
-  font-size: 8vh;
-  color: #FFF;
-}
-
-header img {
-    width: 100%;
-    height: 186px;
-    top: 0;
-    display: flex;
-}
+}  
 
 </style>
