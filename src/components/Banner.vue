@@ -46,7 +46,7 @@ img {
     display: flex;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 640px) {
   .campaign-logo, .chronicle-logo {
       font-size: 8vw;
   }

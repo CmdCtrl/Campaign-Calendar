@@ -13,7 +13,6 @@
         <div class="modal" v-if="entryModal">
           <h2>New Timeline Entry</h2>
           <newEntry />
-          <button class="new-entry" @Click="entryModal = false">Submit</button>
         </div>
       </transition>
     </div>
@@ -41,7 +40,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 * {
   margin: 0;
