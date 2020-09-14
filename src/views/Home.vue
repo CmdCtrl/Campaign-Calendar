@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       entryModal: false,
-      entry: "",
+      entry: null,
     };
   },
 
@@ -41,6 +41,8 @@ export default {
   methods: {
     updateTimeline(entryObj) {
       this.entry = entryObj;
+      console.log("UPDATE CALLED");
+      console.log(this.entry);
     },
   }
 }

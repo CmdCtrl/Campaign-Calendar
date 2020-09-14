@@ -1,9 +1,7 @@
 <template>
-<div>
-<!-- 
-Create timeline component here
--->
-</div>
+    <div id="timeline-container">
+        
+    </div>
 </template>
 
 <script>
