@@ -8,8 +8,10 @@
           <input type="number" placeholder="##" v-model="form.day">
           <label>Month: </label>
           <input type="text" placeholder="ex: Kythorn" v-model="form.month">
+          <label>Title: </label>
+          <input type="text" placeholder="ex: The Last Dragon-Knight" v-model="form.title">
           <br />
-          <textarea cols="10" rows="8" placeholder="Tell your tale..." v-model="form.event"></textarea>
+          <textarea cols="8" rows="5" placeholder="Tell your tale..." v-model="form.event"></textarea>
       </form>
       <br />
       <div class="submit">
@@ -26,6 +28,7 @@ export default {
                 year: "",
                 day: "",
                 month: "",
+                title: "",
                 event: "",
             }
         }

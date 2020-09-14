@@ -11,9 +11,12 @@
       </transition>
       <transition name="slide" appear>
         <div class="modal" v-if="entryModal" >
-          <newEntry @entryData="updateTimeline; entryModal = false" />
+          <newEntry @entryData="updateTimeline" />
         </div>
       </transition>
+    </div>
+    <div class="entry-list">
+      <entryContainer :entry="entry" />
     </div>
   </div>
 </template>
@@ -22,6 +25,7 @@
 // @ is an alias to /src
 import newEntry from '@/components/newEntry.vue';
 import Banner from '@/components/Banner.vue';
+import entryContainer from '@/components/Entry.vue';
 
 export default {
   name: 'Home',
@@ -36,6 +40,7 @@ export default {
   components: {
     newEntry,
     Banner,
+    entryContainer,
   },
 
   methods: {
