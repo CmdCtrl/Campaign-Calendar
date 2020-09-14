@@ -46,6 +46,7 @@ export default {
   methods: {
     updateTimeline(entryObj) {
       this.entry = entryObj;
+      this.entryModal = false;
       console.log("UPDATE CALLED");
       console.log(this.entry);
     },

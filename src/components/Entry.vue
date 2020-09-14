@@ -1,10 +1,11 @@
 <template>
     <div class="entry-post">
-        <h2>Timeline</h2>
+        <h1>Timeline</h1>
         <div class="entry" v-for="(entry, index) in entryList" :item="entry" :key="index">
-            <h3>{{ entry.year }} {{ entry.month }} {{ entry.day }}</h3>
+            <h2 @click="toggle">{{ entry.year }} {{ entry.month }} {{ entry.day }}</h2>
             <h3>{{ entry.title }}</h3>
-            <p>{{ entry.event }}</p>
+            <p v-if="showPreview">{{ preview }}</p>
+            <p v-else>{{ entry.event }}</p>
         </div>
     </div>
 </template>
@@ -26,12 +27,25 @@ export default {
     data() {
         return {
             entryList: [],
+            showPreview: true,
         };
     },
     watch: {
         entry: function() {
             this.entryList.push(this.entry);
         }
+    },
+    computed: {
+        preview() {
+            const full = this.entry.event;
+            const preview = full.substring(0, 20);
+            return `${preview}...`;
+        }
+    },
+    methods: {
+        toggle() {
+            this.showPreview = !this.showPreview;
+        },
     }
 }
 </script>
