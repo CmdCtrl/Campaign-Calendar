@@ -10,9 +10,8 @@
         </div>
       </transition>
       <transition name="slide" appear>
-        <div class="modal" v-if="entryModal">
-          <h2>New Timeline Entry</h2>
-          <newEntry />
+        <div class="modal" v-if="entryModal" >
+          <newEntry @entryData="updateTimeline; entryModal = false" />
         </div>
       </transition>
     </div>
@@ -29,13 +28,20 @@ export default {
   
   data() {
     return {
-      entryModal: false
+      entryModal: false,
+      entry: "",
     };
   },
 
   components: {
     newEntry,
     Banner,
+  },
+
+  methods: {
+    updateTimeline(entryObj) {
+      this.entry = entryObj;
+    },
   }
 }
 </script>

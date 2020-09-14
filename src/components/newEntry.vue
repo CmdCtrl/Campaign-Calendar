@@ -1,19 +1,20 @@
 <template>
   <div id="entryForm">
-    <form>
-        <label>Year: </label>
-        <input type="text" placeholder="ex: 1358 DR" v-model="form.year" required>
-        <label>Day: </label>
-        <input type="number" placeholder="##" v-model="form.day">
-        <label>Month: </label>
-        <input type="text" placeholder="ex: Kythorn" v-model="form.month">
-        <br />
-        <textarea cols="10" rows="8" placeholder="Tell your tale..." v-model="form.event"></textarea>
-    </form>
-    <br />
-    <div class="submit">
-        <button class="new-entry" @Click="entryModal = false">Submit</button>
-    </div>
+      <h2>New Timeline Entry</h2>
+      <form>
+          <label>Year: </label>
+          <input type="text" placeholder="ex: 1358 DR" v-model="form.year" required>
+          <label>Day: </label>
+          <input type="number" placeholder="##" v-model="form.day">
+          <label>Month: </label>
+          <input type="text" placeholder="ex: Kythorn" v-model="form.month">
+          <br />
+          <textarea cols="10" rows="8" placeholder="Tell your tale..." v-model="form.event"></textarea>
+      </form>
+      <br />
+      <div class="submit">
+          <button class="new-entry" @click="submitEntry">Submit</button>
+      </div>
   </div>
 </template>
 
@@ -28,6 +29,11 @@ export default {
                 event: "",
             }
         }
+    },
+    methods: {
+        submitEntry: function() {
+            this.$emit("entryData", this.form);
+        },
     }
 }
 </script>
