@@ -7,6 +7,7 @@
                 <h3>{{ entry.title }}</h3>
                 <p v-if="showPreview">{{ entry.sub }}</p>
                 <p v-else>{{ entry.event }}</p>
+                <br />
             </li>
         </div>
     </div>
@@ -60,6 +61,7 @@ h2 {
     &:hover {
         background-image: linear-gradient(to right, #CC2e50, #FF5858);
         background-size: 100%;
+        background-clip: text;
         -webkit-background-clip: text;
         -moz-background-clip: text;
         -webkit-text-fill-color: transparent; 
