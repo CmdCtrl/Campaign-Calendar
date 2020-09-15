@@ -30,11 +30,13 @@ export default {
                 month: "",
                 title: "",
                 event: "",
+                sub: "",
             }
         }
     },
     methods: {
         submitEntry: function() {
+            this.form.sub = this.form.event.substring(0, 20);
             this.$emit("entryData", this.form);
         },
     }
