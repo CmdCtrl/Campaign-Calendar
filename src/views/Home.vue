@@ -64,6 +64,12 @@ export default {
   font-family: sans-serif;
 }
 
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
 .button-container {
   justify-content: center;
   align-items: center;
@@ -72,6 +78,10 @@ export default {
 }
 
 .new-entry {
+  position: fixed;
+  top: 200px;
+  right: 550px;
+
   cursor: pointer;
   background: none;
   border: none;
@@ -94,13 +104,14 @@ export default {
     box-shadow: 6px 6px rgba(0, 0, 0, 0.6);
   }
 }
+
 .new-entry span {
   font-size: 24px;
   font-weight: 1200;
 }
 
 .modal-overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
@@ -115,7 +126,6 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 99;
-
   width: 100%;
   max-width: 400px;
   background-color: #FFF;
@@ -149,5 +159,18 @@ export default {
 .slide-enter, .slide-leave-to {
   transform: translateY(-50%) translateX(100vw);
 }  
+
+.entry-list {
+  padding: 30px;
+  margin-top: 150px;
+}
+
+@media screen and (max-width: 640px) {
+  .new-entry {
+    position: fixed;
+    top: 194px;
+    right: 116px;
+  }
+}
 
 </style>

@@ -15,7 +15,7 @@
       </form>
       <br />
       <div class="submit">
-          <button class="new-entry" @click="submitEntry">Submit</button>
+          <button class="submit-button" @click="submitEntry">Submit</button>
       </div>
   </div>
 </template>
@@ -36,14 +36,14 @@ export default {
     },
     methods: {
         submitEntry: function() {
-            this.form.sub = this.form.event.substring(0, 20);
+            this.form.sub = this.form.event.substring(0, 30);
             this.$emit("entryData", this.form);
         },
     }
 }
 </script>
 
-<style>
+<style lang="scss">
 #entryForm *{
     box-sizing: border-box;
 }
@@ -67,6 +67,30 @@ input, textarea{
 .submit {
     display: flex;
     justify-content: center;
+}
+
+.submit-button {
+    cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  appearance: none;
+
+  display: inline-block;
+  padding: 14px 22px;
+  background-image: linear-gradient(to right, #CC2e50, #FF5858);
+  border-radius: 8px;
+
+  color: #FFF;
+  font-size: 18px;
+  font-weight: 700;
+
+  box-shadow: 3px 3px rgba(0, 0, 0, 0.4);
+  transition: 0.4s ease-out;
+
+  &:hover {
+    box-shadow: 6px 6px rgba(0, 0, 0, 0.6);
+  }
 }
 
 </style>
