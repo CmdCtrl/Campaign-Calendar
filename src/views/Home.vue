@@ -160,16 +160,20 @@ header {
   transform: translateY(-50%) translateX(100vw);
 }  
 
-.entry-list {
+.entry-list{
   padding: 30px;
   margin-top: 150px;
+}
+
+.entry-list h1 {
+  
 }
 
 @media screen and (max-width: 640px) {
   .new-entry {
     position: fixed;
     top: 194px;
-    right: 116px;
+    right: 124px;
   }
 }
 
