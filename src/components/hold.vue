@@ -1,17 +1,23 @@
+<-- Old version of Entry.vue for reference -->
 <template>
     <div class="entry-post">
-        <li>
-            <h2 class="noselect" @click="toggle">{{ entry.year }} {{ entry.month }} {{ entry.day }}</h2>
-            <h3>{{ entry.title }}</h3>
-            <p v-if="showPreview">{{ entry.sub + `...` }}</p>
-            <p v-else>{{ entry.event }}</p>
-            <br />
-        </li>
+        <h1>Timeline</h1>
+        <div v-for="(entry, index) in entryList" :item="entry" :key="index">
+            <li>
+                <h2 class="noselect" @click="toggle">{{ entry.year }} {{ entry.month }} {{ entry.day }}</h2>
+                <h3>{{ entry.title }}</h3>
+                <p v-if="showPreview">{{ entry.sub + `...` }}</p>
+                <p v-else>{{ entry.event }}</p>
+                <br />
+            </li>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
+    //the props are still required since data is still being passed to this component in the form of
+    //entry objects. the prop maps out an entry and allows the data to be assigned to the right locations
     props: {
         entry: {
             year: {
@@ -26,8 +32,18 @@ export default {
     },
     data() {
         return {
+            entryList: [],
             showPreview: true,
         };
+    },
+    //constructing the array of entries within home made the watch unnecessary, all entries are added to
+    //said array before this component is used, thus the container creates a new instance with each for call.
+    watch: {
+        entry: function() {
+            this.entryList.push(this.entry);
+        }
+    },
+    computed: {
     },
     methods: {
         toggle() {

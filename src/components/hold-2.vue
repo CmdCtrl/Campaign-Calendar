@@ -1,3 +1,4 @@
+<-- Old version of Home.vue for reference -->
 <template>
   <div class="home">
     <header>
@@ -16,8 +17,7 @@
       </transition>
     </div>
     <div class="entry-list">
-      <h1>Timeline</h1>
-      <entryContainer :entry="entry" v-for="(entry, index) in entryList" :item="entry" :key="index"  />
+      <entryContainer :entry="entry" />
     </div>
   </div>
 </template>
@@ -35,7 +35,6 @@ export default {
     return {
       entryModal: false,
       entry: null,
-      entryList: [],
     };
   },
 
@@ -48,8 +47,9 @@ export default {
   methods: {
     updateTimeline(entryObj) {
       this.entry = entryObj;
-      this.entryList.push(this.entry);
       this.entryModal = false;
+      console.log("UPDATE CALLED");
+      console.log(this.entry);
     },
   }
 }
