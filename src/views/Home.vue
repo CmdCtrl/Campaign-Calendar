@@ -15,8 +15,10 @@
         </div>
       </transition>
     </div>
-    <div class="entry-list">
+    <div class="timeline-header">
       <h1>Timeline</h1>
+    </div>
+    <div class="entry-list">
       <entryContainer :entry="entry" v-for="(entry, index) in entryList" :item="entry" :key="index"  />
     </div>
   </div>
@@ -68,6 +70,7 @@ header {
   position: fixed;
   width: 100%;
   top: 0;
+  z-index: 98;
 }
 
 .button-container {
@@ -81,6 +84,7 @@ header {
   position: fixed;
   top: 200px;
   right: 550px;
+  z-index: 99;
 
   cursor: pointer;
   background: none;
@@ -161,12 +165,22 @@ header {
 }  
 
 .entry-list{
-  padding: 30px;
+  padding: 40px;
   margin-top: 150px;
 }
-
-.entry-list h1 {
-  
+.timeline-header {
+  background-color: #FFF;
+  width:100%;
+  margin: 0;
+}
+.timeline-header h1{
+  position: fixed;
+  top: 150px;
+  left: 40px;
+  background-color: #FFF;
+  width: 100%;
+  padding-top: 100px;
+  z-index: 97;
 }
 
 @media screen and (max-width: 640px) {
@@ -174,6 +188,11 @@ header {
     position: fixed;
     top: 194px;
     right: 124px;
+  }
+  .timeline-header h1 {
+    position: fixed;
+    top: 186px;
+    left: 20px;
   }
 }
 

@@ -41,12 +41,13 @@ export default {
 
 .entry-post {
   width: 65%;
-  padding: 15px;
+  padding: 20px;
 }
 
 .entry-post p {
     font-size: 18px;
     overflow-wrap: break-word;
+    white-space: pre-wrap;
 }
 
 span {
@@ -54,6 +55,7 @@ span {
 }
 
 h2 {
+    display: inline-block;
     cursor: pointer;
     &:hover {
         background-image: linear-gradient(to right, #CC2e50, #FF5858);
