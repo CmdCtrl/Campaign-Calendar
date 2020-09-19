@@ -73,13 +73,6 @@ header {
   z-index: 98;
 }
 
-.button-container {
-  justify-content: center;
-  align-items: center;
-  display: flex; 
-  min-height: 15vh;
-}
-
 .new-entry {
   position: fixed;
   top: 200px;
@@ -168,16 +161,12 @@ header {
   padding: 40px;
   margin-top: 150px;
 }
-.timeline-header {
-  background-color: #FFF;
-  width:100%;
-  margin: 0;
-}
+
 .timeline-header h1{
   position: fixed;
   top: 150px;
   left: 40px;
-  background-color: #FFF;
+  background-color:#FFF;
   width: 100%;
   padding-top: 100px;
   z-index: 97;
