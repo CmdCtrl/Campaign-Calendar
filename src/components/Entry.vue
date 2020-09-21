@@ -54,6 +54,30 @@ export default {
     white-space: pre-wrap;
 }
 
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  appearance: none;
+
+  display: inline-block;
+  padding: 2px 3px;
+  background-image: linear-gradient(to right, #CC2e50, #FF5858);
+  border-radius: 4px;
+
+  color: #FFF;
+  font-size: 16px;
+  font-weight: 700;
+
+  box-shadow: 1px 1px rgba(0, 0, 0, 0.4);
+  transition: 0.4s ease-out;
+
+  &:hover {
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.6);
+  }
+}
+
 span {
     font-weight: 600;
 }
