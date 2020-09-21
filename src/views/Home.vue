@@ -19,7 +19,7 @@
       <h1>Timeline</h1>
     </div>
     <div class="entry-list">
-      <entryContainer :entry="entry" v-for="(entry, index) in entryList" :item="entry" :key="index"  />
+      <entryContainer :entry="entry" v-for="(entry, index) in entryList" :item="entry" :key="index" @delete="deleteIndex" />
     </div>
   </div>
 </template>
@@ -53,6 +53,10 @@ export default {
       this.entryList.push(this.entry);
       this.entryModal = false;
     },
+
+    deleteIndex(entryIndex) {
+      this.entryList.splice(entryIndex, 1);
+    },
   }
 }
 </script>
@@ -71,6 +75,13 @@ header {
   width: 100%;
   top: 0;
   z-index: 98;
+}
+
+.button-container {
+  justify-content: center;
+  align-items: center;
+  display: flex; 
+  min-height: 15vh;
 }
 
 .new-entry {
