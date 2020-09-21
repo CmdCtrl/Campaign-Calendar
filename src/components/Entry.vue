@@ -110,6 +110,9 @@ h2 {
     .entry-post {
         width: 100%;
     }
+    button {
+        padding: 4px 6px;
+    }
 }
 
 </style>
