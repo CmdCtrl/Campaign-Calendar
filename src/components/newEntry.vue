@@ -4,6 +4,7 @@
       <form>
           <label>Year: </label>
           <input type="text" placeholder="ex: 1358 DR" v-model="form.year" required>
+          <p class="error-tag" v-if="error==true">Year required.</p>
           <label>Day: </label>
           <input type="number" placeholder="##" v-model="form.day">
           <label>Month: </label>
@@ -31,15 +32,20 @@ export default {
                 title: "",
                 event: "",
                 sub: "",
-            }
+            },
+            error: false,
         }
     },
     methods: {
         submitEntry: function() {
-            this.form.sub = this.form.event.substring(0, 30);
-            this.$emit("entryData", this.form);
+            if(!this.form.year){
+                this.error = true;
+            }else{
+                this.form.sub = this.form.event.substring(0, 30);
+                this.$emit("entryData", this.form);
+            }
         },
-    }
+    },
 }
 </script>
 
@@ -67,6 +73,10 @@ input, textarea{
 .submit {
     display: flex;
     justify-content: center;
+}
+
+.error-tag {
+    color: red;
 }
 
 .submit-button {
