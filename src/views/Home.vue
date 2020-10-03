@@ -19,7 +19,8 @@
       <h1>Timeline</h1>
     </div>
     <div class="entry-list">
-      <entryContainer :entry="entry" v-for="(entry, index) in entryList" :item="entry" :key="index" @delete="deleteIndex" />
+      <entryContainer :entry="entry" v-for="(entry, index) in entryList" :item="entry" :key="index" 
+      @delete="deleteIndex" @up="shiftUp" @down="shiftDown" />
     </div>
   </div>
 </template>
@@ -57,7 +58,31 @@ export default {
     deleteIndex(entryIndex) {
       this.entryList.splice(entryIndex, 1);
     },
-  }
+
+    editEntry() {
+      
+    },
+    
+    shiftUp(entryIndex) {
+      const temp = this.entryList[entryIndex];
+      if(entryIndex > 0){
+        const above = this.entryList[entryIndex-1];
+        this.entryList.splice(entryIndex, 1, above);
+        this.entryList.splice(entryIndex-1, 1, temp);
+      }
+    },
+
+    shiftDown(entryIndex) {
+      const temp = this.entryList[entryIndex];
+      const endIndex = this.entryList.length - 1;
+      if(entryIndex < endIndex){
+        const below = this.entryList[entryIndex+1];
+        this.entryList.splice(entryIndex, 1, below);
+        this.entryList.splice(entryIndex+1, 1, temp);
+      }
+    },
+
+  },
 }
 </script>
 

@@ -1,11 +1,13 @@
 <template>
     <div class="entry-post">
-        <li>
+        
+        <li> 
+            <button @click="moveEntryUp($vnode.key)">&#9650;</button>
+            <button @click="moveEntryDown($vnode.key)">&#9660;</button>
             <h2 class="noselect" @click="toggle">{{ entry.year }} {{ entry.month }} {{ entry.day }}</h2> <button @click="deleteEntry($vnode.key)">x</button>
             <h3>{{ entry.title }}</h3>
             <p v-if="showPreview && (this.entry.event.length > 30)">{{ entry.sub }}<span>...</span> </p>
             <p v-else>{{ entry.event }}</p>
-            
         </li>
     </div>
 </template>
@@ -35,6 +37,14 @@ export default {
         },
         deleteEntry(index) {
             this.$emit('delete', index);
+            console.log('ENTRY INDEX: ' + index);
+        },
+        moveEntryUp(index) {
+            this.$emit('up', index);
+            console.log('ENTRY INDEX: ' + index);
+        },
+        moveEntryDown(index) {
+            this.$emit('down', index);
             console.log('ENTRY INDEX: ' + index);
         },
     }
