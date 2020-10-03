@@ -1,10 +1,9 @@
 <template>
     <div class="entry-post">
-        
         <li> 
-            <button @click="moveEntryUp($vnode.key)">&#9650;</button>
-            <button @click="moveEntryDown($vnode.key)">&#9660;</button>
-            <h2 class="noselect" @click="toggle">{{ entry.year }} {{ entry.month }} {{ entry.day }}</h2> <button @click="deleteEntry($vnode.key)">x</button>
+            <button id="opts1" ref="opts1" @click="moveEntryUp($vnode.key)">&#9650;</button>
+            <button id="opts2" ref="opts2" @click="moveEntryDown($vnode.key)">&#9660;</button>
+            <h2 class="noselect" @click="toggle">{{ entry.year }} {{ entry.month }} {{ entry.day }}</h2> <button id="opts3" ref="opts3" @click="deleteEntry($vnode.key)">x</button>
             <h3>{{ entry.title }}</h3>
             <p v-if="showPreview && (this.entry.event.length > 30)">{{ entry.sub }}<span>...</span> </p>
             <p v-else>{{ entry.event }}</p>
@@ -29,11 +28,19 @@ export default {
     data() {
         return {
             showPreview: true,
+            buttonToggle: false,
         };
     },
     methods: {
         toggle() {
             this.showPreview = !this.showPreview;
+            if(this.buttonToggle == false){
+                this.showButtons();
+            }
+            if(this.buttonToggle == true){
+                this.hideButtons();
+            }   
+            this.buttonToggle = !this.buttonToggle;
         },
         deleteEntry(index) {
             this.$emit('delete', index);
@@ -47,6 +54,16 @@ export default {
             this.$emit('down', index);
             console.log('ENTRY INDEX: ' + index);
         },
+        showButtons() {
+            this.$refs.opts1.style.display = 'inline-block';
+            this.$refs.opts2.style.display = 'inline-block';
+            this.$refs.opts3.style.display = 'inline-block';
+        },
+        hideButtons() {
+            this.$refs.opts1.style.display = 'none';
+            this.$refs.opts2.style.display = 'none';
+            this.$refs.opts3.style.display = 'none';
+        }
     }
 }
 </script>
@@ -62,6 +79,14 @@ export default {
     font-size: 18px;
     overflow-wrap: break-word;
     white-space: pre-wrap;
+}
+
+#opts1, #opts2, #opts3 {
+    display: none;
+}
+
+#opts1, #opts2 {
+    padding: 1px 1px;
 }
 
 button {
@@ -122,6 +147,9 @@ h2 {
     }
     button {
         padding: 4px 6px;
+    }
+    #opts1, #opts2 {
+        display: inline-block;
     }
 }
 
