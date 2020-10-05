@@ -1,8 +1,8 @@
 <template>
     <div class="entry-post">
+        <button id="opts1" ref="opts1" @click="moveEntryUp($vnode.key)">&#9650;</button>
+        <button id="opts2" ref="opts2" @click="moveEntryDown($vnode.key)">&#9660;</button>
         <li> 
-            <button id="opts1" ref="opts1" @click="moveEntryUp($vnode.key)">&#9650;</button>
-            <button id="opts2" ref="opts2" @click="moveEntryDown($vnode.key)">&#9660;</button>
             <h2 class="noselect" @click="toggle">{{ entry.year }} {{ entry.month }} {{ entry.day }}</h2> <button id="opts3" ref="opts3" @click="deleteEntry($vnode.key)">x</button>
             <h3>{{ entry.title }}</h3>
             <p v-if="showPreview && (this.entry.event.length > 30)">{{ entry.sub }}<span>...</span> </p>
@@ -85,9 +85,22 @@ export default {
     display: none;
 }
 
-#opts1, #opts2 {
+#opts1 {
     padding: 1px 1px;
+    position: relative;
+    right: 20px;
+    top: 10px;
+    font-size: 14px;
 }
+
+#opts2 {
+    padding: 1px 1px;
+    position: relative;
+    right: 36px;
+    top: 42px;
+    font-size: 14px;
+}
+
 
 button {
   cursor: pointer;
