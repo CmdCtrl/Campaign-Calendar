@@ -219,6 +219,9 @@ header {
     top: 186px;
     left: 20px;
   }
+  .entry-list {
+    padding: 68px;
+  }
 }
 
 </style>
